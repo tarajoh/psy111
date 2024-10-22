@@ -22,6 +22,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
+import pandas as pd
+
+#importing the dataset
+#\t because columns would be interpreted wrong
+data=pd.read_csv(r'C:\Users\laptop\Documents\HiWi\R_alte_Materialien\psy111\Seminar\2_3_logistic_regression\FieldDisplayRules.dat', delimiter='\t')
+
+#reshape the data
+X = data['age'].values.reshape(-1, 1)
+y=data['display']
 
 #logistic regression
 model= LogisticRegression().fit(X, y)
@@ -123,15 +132,22 @@ print(report)
 ```
 The output can be interpreted as follows:
 
-- Precision: Propportion of true positive predictions among all positive predictions 
-$$Precision=\frac{True POsitives(TP)}{True POsitives(TP)+False Positives(FP)}$$
+- Precision: Propportion of true positive predictions among all positive predictions
+
+$$\text{Precision} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP)} + \text{False Positives (FP)}}$$
+
 - Recall: The proportion of true positives that are correctly identified by the model.
-$$Recall=\frac{TP}{TP+FN}$$
+
+$$\text{Recall} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP)} + \text{False Negatives (FN)}}$$
+
 - F1-Score: harmonic mean of precision and recall. It offers a good balance between those two measuremnets and is therefore a good overall measure of performance.
-$$F1= 2* \frac{Precision*Recall}{Precision+Recall}$$
+
+$$F_1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$
+
 - support: actual occurence of each class in the daatset
 - Accuracy: The overall proportion of correctly predicted observations.
-$$Accuracy= \frac{TP+TN}{Total number of observations}$$
+
+$$\text{Accuracy} = \frac{TP + TN}{\text{Total number of observations}}$$
 
 
 

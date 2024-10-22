@@ -15,7 +15,10 @@ kernelspec:
 # 3.4 Logit Transfrom
 To convert the probabilities from the previous output into a log scale, we apply the formula:
 
-$$ln(\frac{P(Y=1|X)}{1-P(Y=1|X)})=b_0+b_1 * X$$
+$$
+\ln\left(\frac{\text{P(Y=1|X)}}{1-\text{P(Y=1|X)}}\right) = b_0 + b_1 \cdot X
+$$
+
 - $b_0$ as the intercept and the logit value when $X=0$
 - $b_1$ as the slope, which indicates the change of a one-unit-increase of $X$
 
